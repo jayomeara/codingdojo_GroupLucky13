@@ -5,53 +5,41 @@
 
 ## Pages:
 
-- Routing - Login and Registration
+- Login and Registration
+  - Routing
+  - HTML
+  - Design
 
-- HTML - Login and Registration
+- Add a Cache
+  - Routing
+  - HTML
+  - Design
 
-- Design - Login and Registration
+- Find a Cache
+  - Routing
+  - HTML
+  - Design
 
+- My Cache
+  - Routing
+  - HTML
+  - Design
 
-- Routing - Add a Cache
+- Cache by Location
+  - Routing
+  - HTML
+  - Design
 
-- HTML - Add a Cache
-
-- Design - Add A Cache
-
-
-- Routing - Find a Cache
-
-- HTML - Find a Cache
-
-- Design - Find a Cache
-
-
-- Routing - My Cache
-
-- HTML - My Cache
-
-- Design - My Cache
-
-
-- Routing - Cache by Location
-
-- HTML - Cache by Location
-
-- Design - Cache by Location
+- Cache Map
+  - Routing
+  - HTML
+  - Design
 
 
-- Routing - Cache Map
-
-- HTML - Cache Map
-
-- Design - Cache Map
-
-
-- Routing - Comments on Cache
-
-- HTML - Comments on Cache
-
-- Design - Comments on Cache
+- Comments on Cache
+  - Routing
+  - HTML
+  - Design
 
 ## Launch:
 
