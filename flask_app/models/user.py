@@ -4,10 +4,9 @@ import re	# the regex module
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
 class User:
-    DB = 'machining_recommendations'
+    DB = 'cachemap'
     def __init__( self , data ):
         self.id = data['id']
-        self.username = data['username']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
         self.email = data['email']
@@ -43,27 +42,13 @@ class User:
             return False
         return cls(results[0])
 
-    # Input: Username
-    # Output: Class object with user information
-    @classmethod
-    def get_user_by_username(cls, data):
-        query = """
-        SELECT *
-        FROM users
-        WHERE username = %(username)s
-        ;"""
-        results = connectToMySQL(cls.DB).query_db(query, data)
-        if not results:
-            return False
-        return cls(results[0])
-
     # Input: User information
     # Output: User id
     @classmethod
     def save_user(cls, data ):
         query = """
-        INSERT INTO users (username, first_name, last_name, email, password)
-        VALUES (%(username)s, %(first_name)s, %(last_name)s, %(email)s, %(password)s)
+        INSERT INTO users (first_name, last_name, email, password)
+        VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s)
         ;"""
         return connectToMySQL(cls.DB).query_db( query, data )
 
@@ -87,9 +72,6 @@ class User:
         if User.get_user_by_email(data):
             flash("Email address is already in use!", 'register_error')
             is_valid = False
-        if User.get_user_by_username(data):
-            flash("That username is already in use!", 'register_error')
-            is_valid = False
         return is_valid
 
     # Input: Unparsed registration data
@@ -97,7 +79,6 @@ class User:
     @staticmethod
     def parse_user_register(data):
         parsed_data = {
-            'username' : data['username'],
             'first_name': data['first_name'],
             'last_name': data['last_name'],
             'email': data['email'],
