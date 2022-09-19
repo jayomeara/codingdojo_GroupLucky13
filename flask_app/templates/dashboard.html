@@ -35,6 +35,27 @@
         <h2>Add a Cache</h2>
         <button onclick="getLocation()">Share Location</button>
         <div id="location"></div>
+        <div class="addcache-container">
+            {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
+                {%if messages %}
+                    {% for m in messages %}
+                        <p class="alert">{{m}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/postcache" method="post" id="addcache-form">
+                <label for="latitude">Latitude:
+                    <input id="lat-id" type="text" name="latitude">
+                </label>
+                <label for="longitude">Longitude:
+                    <input id="lon-id" type="text" name="longitude">
+                </label>
+                <label for="description">Description:
+                    <input type="text" name="description">
+                </label>
+                <button type="submit" id="addcache-button">Submit</button>
+            </form>
+        </div>
     </main>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>

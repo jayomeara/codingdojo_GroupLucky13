@@ -8,20 +8,20 @@ main {
     justify-content: space-evenly;
 }
 
-.login-container, .registration-container {
+.login-container, .registration-container, .addcache-container {
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
 }
 
-#registration-form, #login-form {
+#registration-form, #login-form, #addcache-form{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
 
-#registration-form *, #login-form * {
+#registration-form *, #login-form *, #addcache-form * {
     margin: 5px;
 }
 
@@ -38,3 +38,4 @@ main {
 .alert {
     color: red;
 }
+
