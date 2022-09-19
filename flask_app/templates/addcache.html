@@ -20,7 +20,7 @@
     <main>
     <div class="addcache-container">
         <h2>Login</h2>
-        {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
+        {% with messages = get_flashed_messages(category_filter=["cache_error"]) %}
             {%if messages %}
                 {% for m in messages %}
                     <p class="alert">{{m}}</p>

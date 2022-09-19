@@ -7,8 +7,10 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    let display = document.getElementById('location');
+    let latId = document.getElementById('lat-id');
+    let longId = document.getElementById('lon-id');
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
-    display.innerHTML = `Location: ${lat} Latitude and ${long} Longitude`;
+    latId.value = lat;
+    longId.value = long;
 }
