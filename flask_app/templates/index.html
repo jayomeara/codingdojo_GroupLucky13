@@ -16,22 +16,55 @@
         <div class="col-md-auto">
             <h1>CacheStash</h1>
         </div>
-        <div class="col-auto">
-            <a href="/dashboard/">Home</a>
-        </div>
-        <div class="alert" role="alert">
-            {% with messages = get_flashed_messages() %}
+    </header>
+    <main>
+        <div class="registration-container">
+            <h2>Registration</h2>
+            {% with messages = get_flashed_messages(category_filter=["registration_error"]) %}
                 {%if messages %}
                     {% for m in messages %}
-                        <h5>{{m}}</h5>
+                        <p class="alert">{{m}}</p>
                     {% endfor %}
                 {% endif %}
             {% endwith %}
+            <form action="/register" method="post" id="registration-form">
+                <label for="first_name">First Name:
+                    <input type="text" name="first_name">
+                </label>
+                <label for="last_name">Last Name:
+                    <input type="text" name="last_name">
+                </label>
+                <label for="email">Email:
+                    <input type="email" name="email">
+                </label>
+                <label for="password">Password:
+                    <input type="password" name="password">
+                </label>
+                <label for="confirm_password">Confirm Password:
+                    <input type="password" name="confirm_password">
+                </label>
+                <button type="submit" id="register-button">Register</button>
+            </form>
         </div>
-    </header>
-
-    <main>
-
+        <div class="login-container">
+            <h2>Login</h2>
+            {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
+                {%if messages %}
+                    {% for m in messages %}
+                        <p class="alert">{{m}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/login" method="post" id="login-form">
+                <label for="email">Email:
+                    <input type="email" name="email">
+                </label>
+                <label for="password">Password:
+                    <input type="password" name="password">
+                </label>
+                <button type="submit" id="login-button">Login</button>
+            </form>
+        </div>
     </main>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>

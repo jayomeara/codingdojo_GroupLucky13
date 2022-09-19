@@ -58,19 +58,19 @@ class User:
     def validate_user_register(data):
         is_valid = True
         if not EMAIL_REGEX.match(data['email']): 
-            flash("Invalid email address!", 'register_error')
+            flash("Invalid email address!", 'registration_error')
             is_valid = False
         if len(data['first_name']) < 3:
-            flash("First name must be at least 3 characters!", 'register_error')
+            flash("First name must be at least 3 characters long!", 'registration_error')
             is_valid = False
         if len(data['last_name']) < 3:
-            flash("Last name must be at least 3 characters!", 'register_error')
+            flash("Last name must be at least 3 characters long!", 'registration_error')
             is_valid = False
         if len(data['password']) < 8:
-            flash("Password must be at least 8 characters long!", 'register_error')
+            flash("Password must be at least 8 characters long!", 'registration_error')
             is_valid = False
         if User.get_user_by_email(data):
-            flash("Email address is already in use!", 'register_error')
+            flash("Email address is already in use!", 'registration_error')
             is_valid = False
         return is_valid
 

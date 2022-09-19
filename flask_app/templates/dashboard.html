@@ -17,7 +17,8 @@
             <h1>CacheStash</h1>
         </div>
         <div class="col-auto">
-            <a href="/dashboard/">Home</a>
+            <a href="/dashboard">Home</a>
+            <a href="/logout">Logout</a>
         </div>
         <div class="alert" role="alert">
             {% with messages = get_flashed_messages() %}
@@ -31,7 +32,9 @@
     </header>
 
     <main>
-        
+        <h2>Add a Cache</h2>
+        <button onclick="getLocation()">Share Location</button>
+        <div id="location"></div>
     </main>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>

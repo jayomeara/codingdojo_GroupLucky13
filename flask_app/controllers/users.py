@@ -16,14 +16,13 @@ def index():
 @app.route('/register', methods=['POST'])
 def register():
     if request.form['confirm_password'] != request.form['password']:
-        flash("Passwords do not match!", 'register_error')
+        flash("Passwords do not match!", 'registration_error')
         return redirect('/')
     data = User.parse_user_register(request.form)
     if not User.validate_user_register(data):
         return redirect('/')
     data['password'] = bcrypt.generate_password_hash(data['password'])
     session['user_id'] = User.save_user(data)
-    session['username'] = data['username']
     return redirect('/dashboard')
 
 # Validates user login data with database
@@ -39,7 +38,6 @@ def login():
         flash('Invalid password', 'login_error')
         return redirect('/')
     session['user_id'] = user.id
-    session['username'] = user.username
     return redirect('/dashboard')
 
 # Logs user out and returns them to login/registration page
