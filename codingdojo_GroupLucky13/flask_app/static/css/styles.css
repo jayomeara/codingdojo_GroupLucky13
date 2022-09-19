@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.login-container, .registration-container {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+}
+
+#registration-form, #login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#registration-form *, #login-form * {
+    margin: 5px;
+}
+
+#login-button, #register-button {
+    width: 100px;
+    height: 40px;
+    background-color:aqua;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.alert {
+    color: red;
+}
