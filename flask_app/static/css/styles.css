@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    /* border: 1px solid black; */
 }
 
 main {
@@ -8,10 +9,18 @@ main {
     justify-content: space-evenly;
 }
 
+header {
+    margin-left: 15%;
+}
+
 .login-container, .registration-container, .addcache-container{
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
+    align-items: center;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 2em;
 }
 
 .mycaches-container {
