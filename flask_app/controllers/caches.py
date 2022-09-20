@@ -70,3 +70,36 @@ def update_cache():
     else:
         Cache.update_cache(request.form)
         return redirect('/usercaches')
+
+@app.route('/cachemapsearch')
+def map_search():
+    if 'user_id' not in session:
+        return redirect('/')
+    else:
+        allCaches=Cache.get_all_caches
+        return render_template('search_map.html', allCaches=allCaches)
+
+@app.route('/searchall', methods=['GET', 'POST'])
+def search_by_location():
+    if 'user_id' not in session:
+        return redirect('/')
+    else:
+        data={
+            'latitude': request.form['latitude'],
+            'longitude': request.form['longitude'],
+            'user_id': session['user_id']
+        }
+        return redirect('/cachemapsearch')
+
+# BUG: traceback error if there is not a comment
+@app.route('/view/cache/<int:cache_id>')
+def view_cache_with_comments(cache_id):
+    if 'user_id' not in session:
+        return redirect('/')
+    else:
+        data = {
+            'id' : cache_id
+        }
+        cache = Cache.get_cache_by_id(data)
+        userCaches = Cache.get_cache_by_id_with_comments(data)
+        return render_template('cache_with_comments.html', userCaches=userCaches, cache=cache)
