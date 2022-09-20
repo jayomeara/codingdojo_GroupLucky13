@@ -8,10 +8,24 @@ main {
     justify-content: space-evenly;
 }
 
-.login-container, .registration-container, .addcache-container {
+.login-container, .registration-container, .addcache-container{
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
+}
+
+.mycaches-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+tbody > tr {
+    border-bottom: 2px dashed black;
+}
+
+tbody > tr > td {
+    padding:5px;
 }
 
 #registration-form, #login-form, #addcache-form{
@@ -21,7 +35,7 @@ main {
     align-items: center;
 }
 
-#registration-form *, #login-form *, #addcache-form * {
+#registration-form *, #login-form *, #addcache-form *, #viewcache-table {
     margin: 5px;
 }
 

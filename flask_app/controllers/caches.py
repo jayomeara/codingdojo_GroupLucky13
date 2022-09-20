@@ -1,3 +1,4 @@
+from functools import cache
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
 
@@ -28,3 +29,44 @@ def post_new_cache():
     }
     Cache.save_cache(data)
     return redirect ('/dashboard')
+
+@app.route('/usercaches')
+def view_caches():
+    if 'user_id' not in session:
+        return redirect('/')
+    else:
+        data = {
+            'id' : session['user_id']
+        }
+        userCaches = Cache.get_all_caches_by_user(data)
+        return render_template('my_caches.html', userCaches=userCaches)
+
+@app.route('/usercaches/delete/<int:cache_id>')
+def delete_cache(cache_id):
+    if 'user_id' not in session:
+        return redirect('/')
+    else:
+        data = {
+            'id' : cache_id
+        }
+        Cache.delete_cache(data)
+        return redirect('/usercaches')
+
+@app.route('/usercaches/edit/<int:cache_id>')
+def edit_cache(cache_id):
+    if 'user_id' not in session:
+        return redirect('/')
+    else:
+        data = {
+            'id' : cache_id
+        }
+        cache = Cache.get_cache_by_id(data)
+        return render_template('edit_cache.html', cache=cache)
+
+@app.route('/usercaches/update', methods=['POST'])
+def update_cache():
+    if 'user_id' not in session:
+        return redirect('/')
+    else:
+        Cache.update_cache(request.form)
+        return redirect('/usercaches')

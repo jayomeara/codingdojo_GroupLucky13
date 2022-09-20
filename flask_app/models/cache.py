@@ -54,7 +54,7 @@ class Cache:
         WHERE id = %(id)s
         ;"""
         results = connectToMySQL(cls.DB).query_db(query, data)
-        if len(results < 1):
+        if len(results) < 1:
             return False
         return cls(results[0])
 
@@ -70,7 +70,7 @@ class Cache:
         WHERE caches.id = %(id)s
         ;"""
         results = connectToMySQL(cls.DB).query_db(query, data)
-        if len(results < 1):
+        if len(results) < 1:
             return False
         else:
             cache = cls(results[0])
