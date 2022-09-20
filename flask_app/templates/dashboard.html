@@ -12,8 +12,8 @@
     <title>CacheStash</title>
 </head>
 <body>
-    <header class="row justify-content-between">
-        <div class="col-md-auto">
+    <header class="row justify-content-around">
+        <div class="col-auto">
             <h1>CacheStash</h1>
         </div>
         <div class="col-auto">
@@ -32,9 +32,11 @@
     </header>
 
     <main>
-        <h2>Add a Cache</h2>
-        <div id="location"></div>
+        <!-- The following line of code might be extra so I commented it out -->
+        <!-- <div id="location"></div> --> 
         <div class="addcache-container">
+            <h2>Add a Cache</h2>
+            <!-- This is the only way to add a cache, right? I think the title should be here then. -->
             {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
                 {%if messages %}
                     {% for m in messages %}
