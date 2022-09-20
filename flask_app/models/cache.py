@@ -32,13 +32,13 @@ class Cache:
     # Input: User id 
     # Output: List of class objects with information
     @classmethod
-    def get_all_caches_by_user(cls):
+    def get_all_caches_by_user(cls, data):
         query = """
         SELECT * 
         FROM caches 
         WHERE user_id = %(id)s
         ;"""
-        results = connectToMySQL(cls.DB).query_db(query)
+        results = connectToMySQL(cls.DB).query_db(query, data)
         caches = []
         for cache in results:
             caches.append( cls(cache) )
@@ -47,21 +47,21 @@ class Cache:
     # Input: Cache id 
     # Output: Single class object
     @classmethod
-    def get_cache_by_id(cls):
+    def get_cache_by_id(cls, data):
         query = """
         SELECT * 
         FROM caches 
         WHERE id = %(id)s
         ;"""
-        results = connectToMySQL(cls.DB).query_db(query)
-        if len(results < 1):
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        if len(results) < 1:
             return False
         return cls(results[0])
 
     # Input: Cache id 
     # Output: Single class object w/ arrays of comments & users attached to comments
     @classmethod
-    def get_cache_by_id_with_comments(cls):
+    def get_cache_by_id_with_comments(cls, data):
         query = """
         SELECT * 
         FROM caches 
@@ -69,8 +69,8 @@ class Cache:
         LEFT JOIN users ON users.id = comments.user_id
         WHERE caches.id = %(id)s
         ;"""
-        results = connectToMySQL(cls.DB).query_db(query)
-        if len(results < 1):
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        if len(results) < 1:
             return False
         else:
             cache = cls(results[0])

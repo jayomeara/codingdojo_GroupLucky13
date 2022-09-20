@@ -15,13 +15,13 @@ class Comment:
     # Input: Cache id 
     # Output: List of class objects with information
     @classmethod
-    def get_all_comments_by_cache(cls):
+    def get_all_comments_by_cache(cls, data):
         query = """
         SELECT * 
         FROM comments 
         WHERE cache_id = %(id)s
         ;"""
-        results = connectToMySQL(cls.DB).query_db(query)
+        results = connectToMySQL(cls.DB).query_db(query, data)
         comments = []
         for comment in results:
             comments.append( cls(comment) )
