@@ -15,6 +15,27 @@ function showPosition(position) {
     longId.value = long;
 }
 
+async function getAddress(){
+    let lat = document.getElementById('lat-id').value;
+    let long = document.getElementById('lon-id').value;
+    let key = 'https://api.geocodify.com/v2/reverse?api_key=27be93eef5f40a54861619efa7617d2a9d924ba5';
+    let request = key.concat('&lat=', lat, '&lng=', long);
+    console.log(request)
+    let response = await fetch(request)
+    if (response.ok) {
+        let json = await response.json();
+        console.log(json.response.features[0].properties);
+        let address = json.response.features[0].properties;
+
+        document.getElementById('street').value = address.street;
+        document.getElementById('city').value = address.locality;
+        document.getElementById('state').value = address.region_a;
+        document.getElementById('country').value = address.country_code;
+    } else {
+        alert("HTTP-Error: " + response.status);
+    }
+}
+
 async function get_all_caches() {
     let caches = await fetch('/get_all_caches')
         .then( response => response.json() )

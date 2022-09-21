@@ -25,7 +25,11 @@ def post_new_cache():
         'latitude': request.form['latitude'],
         'longitude': request.form['longitude'],
         'description': request.form['description'],
-        'user_id': session['user_id']
+        'user_id': session['user_id'],
+        'street' : request.form['street'],
+        'city' : request.form['city'],
+        'state' : request.form['state'],
+        'country' : request.form['country']
     }
     Cache.save_cache(data)
     return redirect ('/dashboard')

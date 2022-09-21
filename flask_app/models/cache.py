@@ -10,6 +10,10 @@ class Cache:
         self.latitude = data['latitude']
         self.longitude = data['longitude']
         self.description = data['description']
+        self.street = data['street']
+        self.city = data['city']
+        self.state = data['state']
+        self.country = data['country']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.user_id = data['user_id']
@@ -127,8 +131,8 @@ class Cache:
     @classmethod
     def save_cache(cls, data ):
         query = """
-        INSERT INTO caches (latitude, longitude, description, user_id) 
-        VALUES (%(latitude)s, %(longitude)s, %(description)s, %(user_id)s)
+        INSERT INTO caches (latitude, longitude, description, user_id, street, city, state, country) 
+        VALUES (%(latitude)s, %(longitude)s, %(description)s, %(user_id)s, %(street)s, %(city)s, %(state)s, %(country)s)
         ;"""
         return connectToMySQL(cls.DB).query_db( query, data )
 
@@ -138,7 +142,7 @@ class Cache:
     def update_cache(cls, data ):
         query = """
         UPDATE caches 
-        SET latitude = %(latitude)s, longitude = %(longitude)s, description = %(description)s 
+        SET latitude = %(latitude)s, longitude = %(longitude)s, description = %(description)s, street = %(street)s, city = %(city)s, state = %(state)s, country = %(country)s
         WHERE id = %(id)s
         ;"""
         return connectToMySQL(cls.DB).query_db( query, data )
