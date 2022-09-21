@@ -25,7 +25,11 @@ def post_new_cache():
         'latitude': request.form['latitude'],
         'longitude': request.form['longitude'],
         'description': request.form['description'],
-        'user_id': session['user_id']
+        'user_id': session['user_id'],
+        'street' : request.form['street'],
+        'city' : request.form['city'],
+        'state' : request.form['state'],
+        'country' : request.form['country']
     }
     Cache.save_cache(data)
     return redirect ('/dashboard')
@@ -79,17 +83,14 @@ def map_search():
         allCaches=Cache.get_all_caches
         return render_template('search_map.html', allCaches=allCaches)
 
-@app.route('/searchall', methods=['GET', 'POST'])
-def search_by_location():
-    if 'user_id' not in session:
-        return redirect('/')
-    else:
+@app.route('/searchall/<city>/<state>')
+def search_by_location(city, state):
         data={
-            'latitude': request.form['latitude'],
-            'longitude': request.form['longitude'],
+            'city': city,
+            'state': state,
             'user_id': session['user_id']
         }
-        return redirect('/cachemapsearch')
+        return Cache.get_caches_in_city_JSON(data)
 
 # BUG: traceback error if there is not a comment
 @app.route('/view/cache/<int:cache_id>')
