@@ -16,31 +16,45 @@
         <div class="col-md-auto">
             <h1>CacheStash</h1>
         </div>
+        <div class="col-auto">
+            <a href="/dashboard">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="alert" role="alert">
+            {% with messages = get_flashed_messages() %}
+                {%if messages %}
+                    {% for m in messages %}
+                        <h5>{{m}}</h5>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
     </header>
-    <main>
-    <div class="addcache-container">
-        <h2>Login</h2>
-        {% with messages = get_flashed_messages(category_filter=["cache_error"]) %}
-            {%if messages %}
-                {% for m in messages %}
-                    <p class="alert">{{m}}</p>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        <form action="/postcache" method="post" id="addcache-form">
-            <label for="latitude">Latitude:
-                <input id="lat-id" type="text" name="latitude">
-            </label>
-            <label for="longitude">Longitude:
-                <input id="lon-id" type="text" name="longitude">
-            </label>
-            <label for="description">Description:
-                <input type="text" name="description">
-            </label>
-            <button type="submit" id="addcache-button">Submit</button>
-        </form>
+
+    <div class="caches_with_comments-container">
+        <h2>My Caches</h2>
+        <div>
+            <table id="viewcomments-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" valign="top">User</th>
+                        <th rowspan="2" valign="top">Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cache in comments %}
+                        <tr>
+                            <td>{{cache.first_name}}</td>
+                            <td>{{ cache.message }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-    </main>
+    <div class="button-div">
+        <a href="/cachemapsearch"><button>Search All Caches</button></a>
+    </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>

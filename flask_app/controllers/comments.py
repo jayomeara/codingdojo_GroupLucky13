@@ -13,20 +13,9 @@ def view_with_comments(cache_id):
         data = {
             'id' : cache_id
         }
-        Cache.get_cache_by_id
-        # Comment.get_all_comments_by_cache()
-        return render_template('cache_with_comments.html')
+        Comment.get_all_comments_by_cache(data)
+        comments=Cache.get_cache_by_id_with_comments(data)
+        return render_template('cache_with_comments.html', comments=comments)
 
-@app.route('/leave/comment/<int:cache_id>')
-def leave_comment(cache_id):
-    if 'user_id' not in session:
-        return redirect('/')
-    else:
-        data = {
-            'id' : cache_id
-        }
-        Cache.get_cache_by_id
-        Comment.get_all_comments_by_cache()
-        return render_template('cache_with_comments.html')
 
-@app.route('/postcomment', methods=['POST'])
+# @app.route('/postcomment', methods=['POST'])
