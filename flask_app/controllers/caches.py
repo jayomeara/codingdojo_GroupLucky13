@@ -103,3 +103,7 @@ def view_cache_with_comments(cache_id):
         cache = Cache.get_cache_by_id(data)
         userCaches = Cache.get_cache_by_id_with_comments(data)
         return render_template('cache_with_comments.html', userCaches=userCaches, cache=cache)
+
+@app.route('/get_all_caches')
+def get_all_caches():
+    return Cache.get_all_caches_JSON()

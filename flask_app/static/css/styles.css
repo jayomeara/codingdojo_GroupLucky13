@@ -65,3 +65,10 @@ tbody > tr > td {
 .button-div {
     text-align: center;
 }
+
+#viewall-table {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

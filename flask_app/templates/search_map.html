@@ -55,7 +55,7 @@
             </form>
         </div>
     </main>
-    <table id="viewall-table" action="/searchall" method="get">
+    <table id="viewall-table">
         <thead>
             <tr>
                 <th colspan="2" valign="top">Location</th>
@@ -68,7 +68,7 @@
                 <td>Longitude</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="cache_table_body">
             {% for cache in allCaches.caches %}
                 <tr>
                     <td>{{ cache.latitude }}</td>
@@ -84,7 +84,7 @@
 </div>
 </div>
     <div class="button-div">
-        <a href="/cachemapsearch"><button>Search All Caches</button></a>
+        <button onclick="get_all_caches()">Search All Caches</button>
         <a href="/usercaches"><button>View My Caches</button></a>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
