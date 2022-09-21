@@ -97,7 +97,7 @@ class Cache:
                     'created_at' : row['comments.created_at'],
                     'updated_at' : row['comments.updated_at'],
                     'user_id' : row['comments.user_id'],
-                    'cache_id' : row['comments.cache_id']
+                    'cache_id' : row['cache_id']
                 }
                 cache_Comment = comment.Comment(comment_data)
 
