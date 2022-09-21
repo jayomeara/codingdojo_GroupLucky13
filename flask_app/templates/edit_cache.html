@@ -41,6 +41,7 @@
             {% endif %}
         {% endwith %}
         <form action="/usercaches/update" method="post" id="addcache-form">
+            <button type="button" onclick="getLocation()">Share Location</button>
             <input type="hidden" name="id" value="{{ cache.id }}">
             <label for="latitude">Latitude:
                 <input id="lat-id" type="text" name="latitude" value="{{ cache.latitude }}">
@@ -50,6 +51,19 @@
             </label>
             <label for="description">Description:
                 <input type="text" name="description" value="{{ cache.description }}">
+            </label>
+            <button type="button" onclick="getAddress()">Get Address</button>
+            <label for="street">Street:
+                <input type="text" name="street" id="street" value="{{ cache.street }}">
+            </label>
+            <label for="city">City:
+                <input type="text" name="city" id="city" value="{{ cache.city }}">
+            </label>
+            <label for="state">State:
+                <input type="text" name="state" id="state" value="{{ cache.state }}">
+            </label>
+            <label for="country">Country:
+                <input type="text" name="country" id="country" value="{{ cache.country }}">
             </label>
             <button type="submit" id="addcache-button">Submit</button>
         </form>
