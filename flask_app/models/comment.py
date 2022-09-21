@@ -22,6 +22,8 @@ class Comment:
         WHERE cache_id = %(id)s
         ;"""
         results = connectToMySQL(cls.DB).query_db(query, data)
+        if not results:
+            return False
         comments = []
         for comment in results:
             comments.append( cls(comment) )

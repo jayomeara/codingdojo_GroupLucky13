@@ -92,18 +92,6 @@ def search_by_location(city, state):
         }
         return Cache.get_caches_in_city_JSON(data)
 
-# BUG: traceback error if there is not a comment
-@app.route('/view/cache/<int:cache_id>')
-def view_cache_with_comments(cache_id):
-    if 'user_id' not in session:
-        return redirect('/')
-    else:
-        data = {
-            'id' : cache_id
-        }
-        cache = Cache.get_cache_by_id(data)
-        userCaches = Cache.get_cache_by_id_with_comments(data)
-        return render_template('cache_with_comments.html', userCaches=userCaches, cache=cache)
 
 @app.route('/get_all_caches')
 def get_all_caches():

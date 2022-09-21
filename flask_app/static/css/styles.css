@@ -13,7 +13,7 @@ header {
     margin-left: 15%;
 }
 
-.login-container, .registration-container, .addcache-container, .searchall-container{
+.login-container, .registration-container, .addcache-container, .searchall-container, .caches_with_comments-container{
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
@@ -44,7 +44,7 @@ tbody > tr > td {
     align-items: center;
 }
 
-#registration-form *, #login-form *, #addcache-form *, #viewcache-table, #viewall-table {
+#registration-form *, #login-form *, #addcache-form *, #viewcache-table, #viewall-table, #viewcomments-table {
     margin: 5px;
 }
 
