@@ -29,6 +29,20 @@ class Cache:
             caches.append( cls(cache) )
         return caches
 
+    # Input: Nothing
+    # Output: List of caches, not class objects
+    @classmethod
+    def get_all_caches_JSON(cls):
+        query = """
+        SELECT * 
+        FROM caches
+        ;"""
+        results = connectToMySQL(cls.DB).query_db(query)
+        caches = []
+        for cache in results:
+            caches.append(cache)
+        return caches
+
     # Input: User id 
     # Output: List of class objects with information
     @classmethod
