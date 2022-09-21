@@ -1,3 +1,4 @@
+import re
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models import comment
 from flask_app.models import user
@@ -125,7 +126,20 @@ class Cache:
         #Return cache instance w/ array of comments w/ users
         return cache
     
-    
+    @classmethod
+    def get_caches_in_city_JSON(cls, data):
+        query = """
+        SELECT * 
+        FROM caches 
+        WHERE city = %(city)s
+        AND state = %(state)s
+        ;"""
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        if len(results) < 1:
+            return False
+        else:
+            return results
+
     # Input: Cache information
     # Output: Cache id
     @classmethod

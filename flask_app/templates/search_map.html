@@ -43,16 +43,14 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            <button onclick="getLocation()">Share Location</button>
-            <form action="/searchall" method="post" id="searchcache-form">
-                <label for="latitude">Latitude:
-                    <input id="lat-id" type="text" name="latitude">
-                </label>
-                <label for="longitude">Longitude:
-                    <input id="lon-id" type="text" name="longitude">
-                </label>
-                <button type="submit" id="searchall-button">Search</button>
-            </form>
+            <!-- <button onclick="getLocation()">Share Location</button> -->
+            <label for="city">City:
+                <input id="city" type="text" name="city">
+            </label>
+            <label for="state">State:
+                <input id="state" type="text" name="state">
+            </label>
+            <button type="button" onclick="search_caches()" id="searchall-button">Search</button>
         </div>
     </main>
     <table id="viewall-table">

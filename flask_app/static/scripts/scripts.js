@@ -24,7 +24,7 @@ async function getAddress(){
     let response = await fetch(request)
     if (response.ok) {
         let json = await response.json();
-        console.log(json.response.features[0].properties);
+        // console.log(json.response.features[0].properties);
         let address = json.response.features[0].properties;
 
         document.getElementById('street').value = address.street;
@@ -38,6 +38,29 @@ async function getAddress(){
 
 async function get_all_caches() {
     let caches = await fetch('/get_all_caches')
+        .then( response => response.json() )
+    console.log(caches);
+    let position = document.getElementById('cache_table_body')
+    position.innerHTML = '';
+    for(let i = 0; i < caches.length; i++) {
+        position.innerHTML += `
+        <tr>
+            <td>${ caches[i]['latitude']}</td>
+            <td>${ caches[i]['longitude']}</td>
+            <td>${ caches[i]['description']}</td>
+            <td><img width="400" height="200" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=400&height=200&center=lonlat:${caches[i].longitude },${caches[i].latitude}&zoom=14&apiKey=ce3b7da4754d40ba881a68789118ecbd"></td>
+            <td><a href="/usercaches/edit/${caches[i].id}"><button>Edit</button></a></td>
+            <td><a href="/usercaches/delete/${caches[i].id}"><button>Delete</button></a></td>
+        </tr>
+        `
+    }
+}
+
+async function search_caches() {
+    let city = document.getElementById('city').value;
+    let state = document.getElementById('state').value
+    let request = '/searchall/' + city + "/" + state
+    let caches = await fetch(request)
         .then( response => response.json() )
     console.log(caches);
     let position = document.getElementById('cache_table_body')
