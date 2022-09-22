@@ -103,6 +103,7 @@ body {
     font-size: 16px;
     box-shadow: 5px 5px #481d24;
     margin-right: 15px;
+    border-radius: 5px;
 }
 
 #header-button-logout {
@@ -116,6 +117,7 @@ body {
     font-size: 16px;
     box-shadow: 5px 5px #481d24;
     margin-right: 15px;
+    border-radius: 5px;
 }
 
 #header-button:hover {
@@ -206,7 +208,7 @@ body {
     font-size: 16px;
     box-shadow: 5px 5px #481d24;
     margin-right: 15px;
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 #dash-submit-btn:hover {
@@ -266,4 +268,33 @@ body {
     background-color: #d84155;
     color: white;
     transform: translateY(-3px);
+}
+
+#cancel-btn {
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px #481d24;
+    margin-right: 15px;
+}
+
+#cancel-btn:hover {
+    background-color: lightgray;
+    color: white;
+    transform: translateY(-3px);
+}
+
+#mycache-card-comments {
+    background-color: #e9724c;
+    box-shadow: 15px 15px #481d24;
+    font-weight: bold;
+    width: 600px;
+    margin: 50px;
+    padding: 10px;
+    margin-left: 650px;
 }

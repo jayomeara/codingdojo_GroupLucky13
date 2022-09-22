@@ -14,7 +14,7 @@
 <body>
     {% include 'navBar.html' %}
 
-    <div class="caches_with_comments-container">
+    <div class="caches_with_comments-container" id="mycache-card-comments">
         <div class="d-flex flex-column align-items-center">
             <p><strong>Cache located at:</strong></p>
             <p>
@@ -52,17 +52,17 @@
                         <textarea name="message" id="" cols="30" rows="5" class="form-control"></textarea>
                     </label>
                     <div>
-                        <button type="button" onclick="cancel_comment_form()" class="btn btn-secondary">Cancel Comment</button>
-                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                        <button type="button" onclick="cancel_comment_form()" class="btn btn-secondary" id="cancel-btn">Cancel Comment</button>
+                        <button type="submit" class="btn btn-primary" id="dash-submit-btn">Submit Comment</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <div class="button-div">
-        <button onclick="display_comment_form(this)" id="comment_button" class="btn btn-light">Comment</button>
-        <a href="/cachemapsearch"><button class="btn btn-light">Search All Caches</button></a>
-        <a href="/usercaches"><button class="btn btn-light">View My Caches</button></a>
+        <button onclick="display_comment_form(this)" id="dash-btn" class="btn btn-light">Comment</button>
+        <a href="/cachemapsearch"><button class="btn btn-light" id="dash-btn">Search All Caches</button></a>
+        <a href="/usercaches"><button class="btn btn-light" id="dash-btn">View My Caches</button></a>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
