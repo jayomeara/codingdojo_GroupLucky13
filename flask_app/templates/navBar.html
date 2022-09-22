@@ -17,15 +17,6 @@
             <a href="/dashboard" id="header-button">Home</a>
             <a href="/logout" id="header-button-logout">Logout</a>
         </div>
-        {% with messages = get_flashed_messages() %}
-            {%if messages %}
-                <div class="alert" role="alert">
-                    {% for m in messages %}
-                        <h5>{{m}}</h5>
-                    {% endfor %}
-                </div>
-                {% endif %}
-        {% endwith %}
     </header>
     {% endblock navBar %}
 </body>
