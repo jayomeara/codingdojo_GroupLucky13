@@ -143,4 +143,24 @@ tbody > tr > td {
     display: inline-block;
     width: 210px;
     text-align: left;
+    display: none;
+}
+
+#add-comment-container {
+
+    
+#comment_form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#comment_form * {
+    margin: 5px;
+}
+
+#message_label {
+    display: flex;
+    align-items: center;
 }

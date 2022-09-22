@@ -76,3 +76,16 @@ async function search_caches() {
         `
     }
 }
+
+function display_comment_form(comment_button) {
+    let target = document.querySelector('#add-comment-container')
+    target.style.display = 'flex';
+    comment_button.style.display = 'none';
+}
+
+function cancel_comment_form() {
+    let target = document.querySelector('#add-comment-container')
+    target.style.display = 'none';
+    target = document.querySelector('#comment_button');
+    target.style.display = '';
+}
