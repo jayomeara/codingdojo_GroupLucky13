@@ -26,3 +26,14 @@ def add_comment(cache_id):
     }
     Comment.save_comment(data)
     return redirect(f'/view/cache/{cache_id}')
+
+
+@app.route('/delete/comment/<int:comment_id>/<int:cache_id>/<int:user_id>')
+def delete_comment(comment_id, cache_id, user_id):
+    if user_id != session['user_id']:
+        return redirect (f'/view/cache/{cache_id}')
+    data={
+        'id':comment_id
+    }
+    Comment.delete_comment(data)
+    return redirect (f'/view/cache/{cache_id}')

@@ -40,6 +40,7 @@
                         <th colspan="2" valign="top">User</th>
                         <th rowspan="2" valign="top">Comment</th>
                         <th rowspan="2" valign="top">Time/Date</th>
+                        <th rowspan="2" valign="top">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,9 @@
                             <td>{{comment.author.first_name}}</td>
                             <td>{{comment.message }}</td>
                             <td>{{comment.updated_at.strftime("%H:%M on %m-%d-%y") }}</td>
+                            {% if comment.author.user_id == session['user_id']%}
+                            <td><a href="/delete/comment/{{comment.id}}/{{cache.id}}/{{comment.user_id}}"><button>Delete</button></a></td>
+                            {% endif %}
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -70,6 +74,7 @@
     <div class="button-div">
         <button onclick="display_comment_form(this)" id="comment_button">Comment</button>
         <a href="/cachemapsearch"><button>Search All Caches</button></a>
+        <a href="/usercaches"><button>View My Caches</button></a>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
