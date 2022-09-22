@@ -105,8 +105,28 @@ body {
     margin-right: 15px;
 }
 
+#header-button-logout {
+    background-color: #c5283d;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px #481d24;
+    margin-right: 15px;
+}
+
 #header-button:hover {
     background-color: #3280b3;
+    color: white;
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+#header-button-logout:hover {
+    background-color: #d84155;
     color: white;
     transform: translateY(-3px);
     opacity: 1;
@@ -198,3 +218,14 @@ body {
 #addcache-form {
     margin-bottom: 8px;
 }
+
+#mycache-card {
+    background-color: #e9724c;
+    box-shadow: 15px 15px #481d24;
+    font-weight: bold;
+    width: 500px;
+    margin: 50px;
+    padding: 10px;
+    margin-left: 700px;
+}
+

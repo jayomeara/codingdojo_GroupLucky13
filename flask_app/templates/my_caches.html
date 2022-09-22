@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
     <title>CacheStash</title>
 </head>
-<body>
+<body id="mycache-body">
     {% include 'navBar.html' %}
 
-    <div class="mycaches-container">
+    <div class="mycaches-container" id="mycache-card">
         <h2>My Caches</h2>
         <div>
             <table class='table' id="viewcache-table">
@@ -48,7 +48,7 @@
         </div>
     </div>
     <div class="button-div">
-        <a href="/cachemapsearch"><button class="btn btn-light">Search All Caches</button></a>
+        <a href="/cachemapsearch"><button class="btn btn-light" id="dash-btn">Search All Caches</button></a>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
