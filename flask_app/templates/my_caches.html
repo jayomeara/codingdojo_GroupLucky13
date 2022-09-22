@@ -13,38 +13,39 @@
 </head>
 <body id="mycache-body">
     {% include 'navBar.html' %}
-
-    <div class="mycaches-container" id="mycache-card">
-        <h2>My Caches</h2>
-        <div>
-            <table class='table' id="viewcache-table">
-                <thead>
-                    <tr>
-                        <th colspan="2" valign="top" scope="row">Location</th>
-                        <th rowspan="2" valign="top" scope="row">Description</th>
-                        <th rowspan="2" valign="top" scope="row">Map</th>
-                        <th rowspan="2" valign="top" scope="row">Actions</th>
-                    </tr>
-                    <tr>
-                        <td>Latitude</td>
-                        <td>Longitude</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for cache in userCaches %}
+    <div class="d-flex justify-content-center">
+        <div class="mycaches-container" id="mycache-card">
+            <h2>My Caches</h2>
+            <div>
+                <table class='table' id="viewcache-table">
+                    <thead>
                         <tr>
-                            <td>{{ cache.latitude }}</td>
-                            <td>{{ cache.longitude }}</td>
-                            <td>{{ cache.description }}</td>
-                            <td><img width="400" height="200" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=400&height=200&center=lonlat:{{ cache.longitude }},{{ cache.latitude }}&zoom=14&apiKey=ce3b7da4754d40ba881a68789118ecbd"></td>
-                            <td><a href="/view/cache/{{cache.id}}"><button class="btn btn-light" id="dash-btn">View Comments</button></a></td>
-                            <td><a href="/usercaches/edit/{{ cache.id }}"><button class="btn btn-light" id="dash-btn">Edit</button></a></td>
-                            <td><a href="/usercaches/delete/{{ cache.id }}"><button class="btn btn-light" id="dash-btn-delete">Delete</button></a></td>
-                            </td>
+                            <th colspan="2" valign="top" scope="row">Location</th>
+                            <th rowspan="2" valign="top" scope="row">Description</th>
+                            <th rowspan="2" valign="top" scope="row">Map</th>
+                            <th rowspan="2" valign="top" scope="row">Actions</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                        <tr>
+                            <td>Latitude</td>
+                            <td>Longitude</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cache in userCaches %}
+                            <tr>
+                                <td>{{ cache.latitude }}</td>
+                                <td>{{ cache.longitude }}</td>
+                                <td>{{ cache.description }}</td>
+                                <td><img width="400" height="200" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=400&height=200&center=lonlat:{{ cache.longitude }},{{ cache.latitude }}&zoom=14&apiKey=ce3b7da4754d40ba881a68789118ecbd"></td>
+                                <td><a href="/view/cache/{{cache.id}}"><button class="btn btn-light" id="dash-btn">View Comments</button></a></td>
+                                <td><a href="/usercaches/edit/{{ cache.id }}"><button class="btn btn-light" id="dash-btn">Edit</button></a></td>
+                                <td><a href="/usercaches/delete/{{ cache.id }}"><button class="btn btn-light" id="dash-btn-delete">Delete</button></a></td>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="button-div">

@@ -13,49 +13,50 @@
 </head>
 <body>
     {% include 'navBar.html' %}
-
-    <div class="caches_with_comments-container" id="mycache-card-comments">
-        <div class="d-flex flex-column align-items-center">
-            <p><strong>Cache located at:</strong></p>
-            <p>
-                {{ cache.street }} {{ cache.city }}, {{ cache.state }} {{ cache.country }}</p>
-        </div>
-            <td><img width="400" height="200" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=400&height=200&center=lonlat:{{ cache.longitude }},{{ cache.latitude }}&zoom=14&apiKey=ce3b7da4754d40ba881a68789118ecbd"></td>
-        <div>
-            <table class='table' id="viewcomments-table">
-                <thead>
-                    <tr>
-                        <th colspan="2" valign="top" scope="row">User</th>
-                        <th rowspan="2" valign="top" scope="row">Comment</th>
-                        <th rowspan="2" valign="top" scope="row">Time/Date</th>
-                        <th rowspan="2" valign="top" scope="row">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for comment in comments %}
+    <div class="d-flex justify-content-center">
+        <div class="caches_with_comments-container" id="mycache-card-comments">
+            <div class="d-flex flex-column align-items-center">
+                <p><strong>Cache located at:</strong></p>
+                <p>
+                    {{ cache.street }} {{ cache.city }}, {{ cache.state }} {{ cache.country }}</p>
+            </div>
+                <td><img width="400" height="200" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=400&height=200&center=lonlat:{{ cache.longitude }},{{ cache.latitude }}&zoom=14&apiKey=ce3b7da4754d40ba881a68789118ecbd"></td>
+            <div>
+                <table class='table' id="viewcomments-table">
+                    <thead>
                         <tr>
-                            <td>{{comment.author.first_name}}</td>
-                            <td>{{comment.message }}</td>
-                            <td>{{comment.updated_at.strftime("%H:%M on %m-%d-%y") }}</td>
-                            {% if comment.author.user_id == session['user_id']%}
-                            <td><a href="/delete/comment/{{comment.id}}/{{cache.id}}/{{comment.user_id}}"><button class="btn btn-light" id="dash-btn-delete">Delete</button></a></td>
-                            {% endif %}
+                            <th colspan="2" valign="top" scope="row">User</th>
+                            <th rowspan="2" valign="top" scope="row">Comment</th>
+                            <th rowspan="2" valign="top" scope="row">Time/Date</th>
+                            <th rowspan="2" valign="top" scope="row">Actions</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <div id="add-comment-container">
-                <form action="/add_comment/{{cache.id}}" method="post" id="comment_form">
-                    <input type="hidden" name="user_id" value="{{session['user_id']}}">
-                    <input type="hidden" name="cache_id" value="{{cache.id}}">
-                    <label for="message" id="message_label">Message:
-                        <textarea name="message" id="" cols="30" rows="5" class="form-control"></textarea>
-                    </label>
-                    <div>
-                        <button type="button" onclick="cancel_comment_form()" class="btn btn-secondary" id="cancel-btn">Cancel Comment</button>
-                        <button type="submit" class="btn btn-primary" id="dash-submit-btn">Submit Comment</button>
-                    </div>
-                </form>
+                    </thead>
+                    <tbody>
+                        {% for comment in comments %}
+                            <tr>
+                                <td>{{comment.author.first_name}}</td>
+                                <td>{{comment.message }}</td>
+                                <td>{{comment.updated_at.strftime("%H:%M on %m-%d-%y") }}</td>
+                                {% if comment.author.user_id == session['user_id']%}
+                                <td><a href="/delete/comment/{{comment.id}}/{{cache.id}}/{{comment.user_id}}"><button class="btn btn-light" id="dash-btn-delete">Delete</button></a></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div id="add-comment-container">
+                    <form action="/add_comment/{{cache.id}}" method="post" id="comment_form">
+                        <input type="hidden" name="user_id" value="{{session['user_id']}}">
+                        <input type="hidden" name="cache_id" value="{{cache.id}}">
+                        <label for="message" id="message_label">Message:
+                            <textarea name="message" id="" cols="30" rows="5" class="form-control"></textarea>
+                        </label>
+                        <div>
+                            <button type="button" onclick="cancel_comment_form()" class="btn btn-secondary" id="cancel-btn">Cancel Comment</button>
+                            <button type="submit" class="btn btn-primary" id="dash-submit-btn">Submit Comment</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
