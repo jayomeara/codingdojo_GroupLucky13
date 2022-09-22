@@ -38,7 +38,7 @@
                             <td>{{comment.message }}</td>
                             <td>{{comment.updated_at.strftime("%H:%M on %m-%d-%y") }}</td>
                             {% if comment.author.user_id == session['user_id']%}
-                            <td><a href="/delete/comment/{{comment.id}}/{{cache.id}}/{{comment.user_id}}"><button class="btn btn-light">Delete</button></a></td>
+                            <td><a href="/delete/comment/{{comment.id}}/{{cache.id}}/{{comment.user_id}}"><button class="btn btn-light" id="dash-btn-delete">Delete</button></a></td>
                             {% endif %}
                         </tr>
                     {% endfor %}
