@@ -49,7 +49,7 @@ async function get_all_caches() {
             <td>${ caches[i]['longitude']}</td>
             <td>${ caches[i]['description']}</td>
             <td><img width="400" height="200" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=400&height=200&center=lonlat:${caches[i].longitude },${caches[i].latitude}&zoom=14&apiKey=ce3b7da4754d40ba881a68789118ecbd"></td>
-            <td><a href="/view/cache/${caches[i].id}"><button class='btn btn-light'>View Comments</button></a></td>
+            <td><a href="/view/cache/${caches[i].id}"><button class='btn btn-light' id='dash-btn'>View Comments</button></a></td>
         </tr>
         `
     }
@@ -71,7 +71,7 @@ async function search_caches() {
             <td>${ caches[i]['longitude']}</td>
             <td>${ caches[i]['description']}</td>
             <td><img width="400" height="200" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=400&height=200&center=lonlat:${caches[i].longitude },${caches[i].latitude}&zoom=14&apiKey=ce3b7da4754d40ba881a68789118ecbd"></td>
-            <td><a href="/view/cache/${caches[i].id}"><button class='btn btn-light' >View Comments</button></a></td>
+            <td><a href="/view/cache/${caches[i].id}"><button class='btn btn-light' id='dash-btn' >View Comments</button></a></td>
         </tr>
         `
     }
@@ -87,5 +87,5 @@ function cancel_comment_form() {
     let target = document.querySelector('#add-comment-container')
     target.style.display = 'none';
     target = document.querySelector('#comment_button');
-    target.style.display = '';
+    target.style.display = 'block';
 }

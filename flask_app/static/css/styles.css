@@ -19,6 +19,10 @@ main {
     padding: 2em;
 }
 
+.addcache-container {
+    margin-top: 20px;
+}
+
 .mycaches-container {
     display: flex;
     flex-direction: column;
@@ -33,7 +37,7 @@ tbody > tr > td {
     padding:5px;
 }
 
-#registration-form, #login-form, #addcache-form, #searchall-form{
+#registration-form, #login-form, #searchall-form{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -46,7 +50,7 @@ tbody > tr > td {
 
 #login-button, #register-button {
     background-color: #255f85;
-    border: none;
+    border: 2px solid black;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -69,7 +73,8 @@ tbody > tr > td {
 }
 
 .button-div {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 /* Login and Reg */
@@ -81,20 +86,16 @@ body {
     background-color: #e9724c;
     padding: 10px;
     top: 50%;
-    width: 100%;
     text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-#header-links {
-
+    border-bottom: 4px solid black;
 }
 
 #header-button {
     background-color: #255f85;
-    border: none;
+    border: 2px solid black;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -108,7 +109,7 @@ body {
 
 #header-button-logout {
     background-color: #c5283d;
-    border: none;
+    border: 2px solid black;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -149,7 +150,8 @@ body {
     background-color: #e9724c;
     box-shadow: 15px 15px 5px #481d24;
     font-weight: bold;
-    width: 300px;
+    border: 4px solid black;
+    /* width: 300px; */
 }
 
 
@@ -159,9 +161,6 @@ body {
     text-align: left;
 }
 
-#add-comment-container {
-}
-    
 #comment_form {
     padding: 20px;
     display: flex;
@@ -180,7 +179,7 @@ body {
 
 #dash-btn {
     background-color: #255f85;
-    border: none;
+    border: 2px solid black;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -199,7 +198,7 @@ body {
 
 #dash-submit-btn {
     background-color: #009933;
-    border: none;
+    border: 2px solid black;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -218,10 +217,15 @@ body {
 }
 
 #addcache-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 8px;
 }
 
 #mycache-card {
+    border: 4px solid black;
     background-color: #e9724c;
     box-shadow: 15px 15px 5px #481d24;
     font-weight: bold;
@@ -232,6 +236,7 @@ body {
 }
 
 #searchall-card {
+    border: 4px solid black;
     background-color: #e9724c;
     box-shadow: 15px 15px 5px #481d24;
     font-weight: bold;
@@ -242,6 +247,7 @@ body {
 }
 
 #table-card {
+    border: 4px solid black;
     background-color: #e9724c;
     box-shadow: 15px 15px 5px#481d24;
     font-weight: bold;
@@ -253,7 +259,7 @@ body {
 
 #dash-btn-delete {
     background-color: #c5283d;
-    border: none;
+    border: 2px solid black;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -272,7 +278,7 @@ body {
 
 #cancel-btn {
     background-color: gray;
-    border: none;
+    border: 2px solid black;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -290,6 +296,7 @@ body {
 }
 
 #mycache-card-comments {
+    border: 4px solid black;
     background-color: #e9724c;
     box-shadow: 15px 15px 5px #481d24;
     font-weight: bold;
@@ -297,4 +304,18 @@ body {
     margin: 50px;
     padding: 10px;
     margin-left: 650px;
+}
+
+.location-column, .address-column {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+}
+
+#add-comment-container {
+    display: none;
 }

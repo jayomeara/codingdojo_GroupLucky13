@@ -36,30 +36,36 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            <button class="btn btn-light" id="dash-btn" onclick="getLocation()">Share Location</button>
             <form action="/postcache" method="post" id="addcache-form" >
-                <label for="latitude">Latitude:
-                    <input id="lat-id" type="text" name="latitude" class="form-control">
-                </label>
-                <label for="longitude">Longitude:
-                    <input id="lon-id" type="text" name="longitude" class="form-control">
-                </label>
-                <label for="description">Description:
-                    <textarea name="description" id="" cols="20" rows="3" class="form-control"></textarea>
-                </label>
-                <button class="btn btn-light" id="dash-btn" type="button" onclick="getAddress()">Get Address</button>
-                <label for="street">Street:
-                    <input type="text" name="street" id="street" class="form-control">
-                </label>
-                <label for="city">City:
-                    <input type="text" name="city" id="city" class="form-control">
-                </label>
-                <label for="state">State:
-                    <input type="text" name="state" id="state" class="form-control">
-                </label>
-                <label for="country">Country:
-                    <input type="text" name="country" id="country" class="form-control">
-                </label>
+                <div id="form-container">
+                    <div class="location-column">
+                        <button type="button" class="btn btn-light" id="dash-btn" onclick="getLocation()">Share Location</button>
+                        <label for="latitude">Latitude:
+                            <input id="lat-id" type="text" name="latitude" class="form-control">
+                        </label>
+                        <label for="longitude">Longitude:
+                            <input id="lon-id" type="text" name="longitude" class="form-control">
+                        </label>
+                        <label for="description">Description:
+                            <textarea name="description" id="" cols="20" rows="3" class="form-control"></textarea>
+                        </label>
+                    </div>
+                    <div class="address-column">
+                        <button class="btn btn-light" id="dash-btn" type="button" onclick="getAddress()">Get Address</button>
+                        <label for="street">Street:
+                            <input type="text" name="street" id="street" class="form-control">
+                        </label>
+                        <label for="city">City:
+                            <input type="text" name="city" id="city" class="form-control">
+                        </label>
+                        <label for="state">State:
+                            <input type="text" name="state" id="state" class="form-control">
+                        </label>
+                        <label for="country">Country:
+                            <input type="text" name="country" id="country" class="form-control">
+                        </label>
+                    </div>
+                </div>
                 <button type="submit" id="dash-submit-btn" class="" >Submit</button>
             </form>
             <div class="button-div">
