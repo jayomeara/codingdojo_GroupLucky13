@@ -17,16 +17,24 @@ class Comment:
     @classmethod
     def get_all_comments_by_cache(cls, data):
         query = """
-        SELECT * 
-        FROM comments 
-        WHERE cache_id = %(id)s
+        SELECT *
+        FROM comments
+        JOIN users
+        ON users.id = comments.user_id
+        WHERE comments.cache_id = %(id)s;
         ;"""
         results = connectToMySQL(cls.DB).query_db(query, data)
-        if not results:
-            return False
         comments = []
-        for comment in results:
-            comments.append( cls(comment) )
+        if not results:
+            return comments
+        for i in  range(len(results)):
+            author = {
+                'user_id': results[i]['users.id'],
+                'first_name': results[i]['first_name'],
+                'last_name': results[i]['last_name'],
+            }
+            comments.append(cls(results[i]))
+            comments[i].author = author
         return comments
 
     # Input: Comment information

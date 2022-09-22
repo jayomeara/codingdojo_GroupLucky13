@@ -13,9 +13,16 @@ def view_with_comments(cache_id):
         data = {
             'id' : cache_id
         }
-        Comment.get_all_comments_by_cache(data)
-        comments=Cache.get_cache_by_id_with_comments(data)
-        return render_template('cache_with_comments.html', comments=comments)
+        cache = Cache.get_cache_by_id(data)
+        comments = Comment.get_all_comments_by_cache(data)
+        return render_template('cache_with_comments.html', comments=comments, cache=cache)
 
-
-# @app.route('/postcomment', methods=['POST'])
+@app.route('/add_comment/<int:cache_id>', methods=['POST'])
+def add_comment(cache_id):
+    data = {
+        'message' : request.form['message'],
+        'cache_id' : cache_id,
+        'user_id' : request.form['user_id']
+    }
+    Comment.save_comment(data)
+    return redirect(f'/view/cache/{cache_id}')
