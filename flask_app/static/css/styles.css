@@ -236,4 +236,15 @@ body {
     width: 300px;
     margin: 50px;
     padding: 30px;
+    margin-left: 0%;
+}
+
+#table-card {
+    background-color: #e9724c;
+    box-shadow: 15px 15px #481d24;
+    font-weight: bold;
+    width: 900px;
+    margin: 50px;
+    padding: 30px;
+    margin-left: 25%;
 }
