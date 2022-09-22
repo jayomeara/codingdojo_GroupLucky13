@@ -44,6 +44,13 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                {% with messages = get_flashed_messages(category_filter=["comment_error"]) %}
+                    {%if messages %}
+                        {% for m in messages %}
+                            <p class="alert">{{m}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 <div id="add-comment-container">
                     <form action="/add_comment/{{cache.id}}" method="post" id="comment_form">
                         <input type="hidden" name="user_id" value="{{session['user_id']}}">
