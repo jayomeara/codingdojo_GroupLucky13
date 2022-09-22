@@ -17,7 +17,7 @@
     <main>
         <!-- The following line of code might be extra so I commented it out -->
         <!-- <div id="location"></div> --> 
-        <div class="searchall-container">
+        <div class="searchall-container" id="searchall-card">
             <h2>Search by Area</h2>
             {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
                 {%if messages %}
@@ -33,7 +33,7 @@
             <label for="state"><strong>State:</strong>
                 <input id="state" type="text" name="state" class="form-control">
             </label>
-            <button type="button" onclick="search_caches()" id="searchall-button" class="btn btn-light btn-sm mt-2">Search</button>
+            <button type="button" onclick="search_caches()" id="dash-submit-btn" class="btn btn-light btn-sm mt-2">Search</button>
         </div>
     </main>
     <div class="d-flex justify-content-center">
@@ -56,8 +56,8 @@
         </table>
     </div>
     <div class="button-div">
-        <button onclick="get_all_caches()" class="btn btn-light">View All Caches</button>
-        <a href="/usercaches"><button class="btn btn-light">View My Caches</button></a>
+        <button onclick="get_all_caches()" class="btn btn-light" id="dash-btn">View All Caches</button>
+        <a href="/usercaches"><button class="btn btn-light" id="dash-btn">View My Caches</button></a>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>

@@ -229,3 +229,11 @@ body {
     margin-left: 700px;
 }
 
+#searchall-card {
+    background-color: #e9724c;
+    box-shadow: 15px 15px #481d24;
+    font-weight: bold;
+    width: 300px;
+    margin: 50px;
+    padding: 30px;
+}
