@@ -9,16 +9,12 @@ main {
     justify-content: space-evenly;
 }
 
-header {
-    margin-left: 15%;
-}
 
 .login-container, .registration-container, .addcache-container, .searchall-container, .caches_with_comments-container{
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
     align-items: center;
-    border: 2px solid grey;
     border-radius: 5px;
     padding: 2em;
 }
@@ -49,13 +45,23 @@ tbody > tr > td {
 }
 
 #login-button, #register-button {
-    width: 100px;
-    height: 40px;
-    background-color:aqua;
-    font-size: 20px;
-    font-weight: bold;
-    border: 2px solid black;
-    border-radius: 20px;
+    background-color: #255f85;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px #481d24;
+    margin-right: 15px;
+}
+
+#login-button:hover, #register-button:hover {
+    background-color: #3280b3;
+    color: white;
+    transform: translateY(-3px);
+    opacity: 3;
 }
 
 .alert {
@@ -71,4 +77,70 @@ tbody > tr > td {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+
+/* Login and Reg */
+#bg {
+    background-color: #ffc857;
+}
+
+#header {
+    background-color: #e9724c;
+    padding: 10px;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header-links {
+
+}
+
+#header-button {
+    background-color: #255f85;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px #481d24;
+    margin-right: 15px;
+}
+
+#header-button:hover {
+    background-color: #3280b3;
+    color: white;
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+#header-text {
+    text-shadow: 3px 3px #c5283d;
+    color: #481d24
+}
+
+#login-main {
+    display: flex;
+    margin: 140px 20px;
+
+}
+
+#card {
+    background-color: #e9724c;
+    box-shadow: 15px 15px #481d24;
+    font-weight: bold;
+    width: 300px;
+}
+
+
+#card label {
+    display: inline-block;
+    width: 210px;
+    text-align: left;
 }

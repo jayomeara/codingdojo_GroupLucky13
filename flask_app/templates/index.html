@@ -11,14 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
     <title>CacheStash</title>
 </head>
-<body>
-    <header>
-        <div>
-            <h1>CacheStash</h1>
+
+
+<body id="bg">
+    <header id="header">
+        <div class="">
+            <h1 id="header-text">CacheStash</h1>
         </div>
     </header>
-    <main>
-        <div class="registration-container">
+    <main id="login-main">
+        <div class="registration-container" id="card">
             <h2>Registration</h2>
             {% with messages = get_flashed_messages(category_filter=["registration_error"]) %}
                 {%if messages %}
@@ -46,7 +48,7 @@
                 <button type="submit" id="register-button">Register</button>
             </form>
         </div>
-        <div class="login-container">
+        <div class="login-container" id="card">
             <h2>Login</h2>
             {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
                 {%if messages %}

@@ -11,30 +11,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
     <title>CacheStash</title>
 </head>
-<body>
-    <header class="row justify-content-around">
-        <div class="col-auto">
-            <h1>CacheStash</h1>
-        </div>
-        <div class="col-auto">
-            <a href="/dashboard">Home</a>
-            <a href="/logout">Logout</a>
-        </div>
-        <div class="alert" role="alert">
-            {% with messages = get_flashed_messages() %}
-                {%if messages %}
-                    {% for m in messages %}
-                        <h5>{{m}}</h5>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
+
+
+<body id="bg">
+    <header id="header">
+        <h1 id="header-text">CacheStash</h1>
+        <div class="header-links">
+            <a id="header-button" href="/dashboard">Home</a>
+            <a id="header-button" href="/logout">Logout</a>
         </div>
     </header>
+
+    <div class="alert" role="alert">
+        {% with messages = get_flashed_messages() %}
+            {%if messages %}
+                {% for m in messages %}
+                    <h5>{{m}}</h5>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
 
     <main>
         <!-- The following line of code might be extra so I commented it out -->
         <!-- <div id="location"></div> --> 
-        <div class="addcache-container">
+        <div class="addcache-container" id="card">
             <h2>Add a Cache</h2>
             <!-- This is the only way to add a cache, right? I think the title should be here then. -->
             {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
@@ -70,12 +71,13 @@
                 </label>
                 <button type="submit" id="addcache-button">Submit</button>
             </form>
+            <div class="button-div">
+                <a href="/cachemapsearch"><button>Search All Caches</button></a>
+                <a href="/usercaches"><button>View My Caches</button></a>
+            </div>
         </div>
     </main>
-    <div class="button-div">
-        <a href="/cachemapsearch"><button>Search All Caches</button></a>
-        <a href="/usercaches"><button>View My Caches</button></a>
-    </div>
+    
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>
