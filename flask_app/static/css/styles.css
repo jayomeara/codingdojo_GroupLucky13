@@ -72,16 +72,8 @@ tbody > tr > td {
     text-align: center;
 }
 
-#viewall-table {
-    /* width: 100%; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
 /* Login and Reg */
-#bg {
+body {
     background-color: #ffc857;
 }
 
@@ -143,11 +135,10 @@ tbody > tr > td {
     display: inline-block;
     width: 210px;
     text-align: left;
-    display: none;
 }
 
 #add-comment-container {
-
+}
     
 #comment_form {
     padding: 20px;

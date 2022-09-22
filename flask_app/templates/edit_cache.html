@@ -12,66 +12,58 @@
     <title>CacheStash</title>
 </head>
 <body>
-    <header class="row justify-content-around">
-        <div class="col-md-auto">
-            <h1>CacheStash</h1>
-        </div>
-        <div class="col-auto">
-            <a href="/dashboard">Home</a>
-            <a href="/logout">Logout</a>
-        </div>
-        <div class="alert" role="alert">
-            {% with messages = get_flashed_messages() %}
-                {%if messages %}
-                    {% for m in messages %}
-                        <h5>{{m}}</h5>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-        </div>
-    </header>
-    <main>
-    <div class="addcache-container">
-        <h2>Edit Cache</h2>
-        {% with messages = get_flashed_messages(category_filter=["cache_error"]) %}
+    {% include 'navBar.html' %}
+    <div class="alert" role="alert">
+        {% with messages = get_flashed_messages() %}
             {%if messages %}
                 {% for m in messages %}
-                    <p class="alert">{{m}}</p>
+                    <h5>{{m}}</h5>
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        <form action="/usercaches/update" method="post" id="addcache-form">
-            <button type="button" onclick="getLocation()">Share Location</button>
-            <input type="hidden" name="id" value="{{ cache.id }}">
-            <label for="latitude">Latitude:
-                <input id="lat-id" type="text" name="latitude" value="{{ cache.latitude }}">
-            </label>
-            <label for="longitude">Longitude:
-                <input id="lon-id" type="text" name="longitude" value="{{ cache.longitude }}">
-            </label>
-            <label for="description">Description:
-                <input type="text" name="description" value="{{ cache.description }}">
-            </label>
-            <button type="button" onclick="getAddress()">Get Address</button>
-            <label for="street">Street:
-                <input type="text" name="street" id="street" value="{{ cache.street }}">
-            </label>
-            <label for="city">City:
-                <input type="text" name="city" id="city" value="{{ cache.city }}">
-            </label>
-            <label for="state">State:
-                <input type="text" name="state" id="state" value="{{ cache.state }}">
-            </label>
-            <label for="country">Country:
-                <input type="text" name="country" id="country" value="{{ cache.country }}">
-            </label>
-            <button type="submit" id="addcache-button">Submit</button>
-        </form>
     </div>
+    <main>
+        <div class="addcache-container" id="card">
+            <h2>Edit Cache</h2>
+            {% with messages = get_flashed_messages(category_filter=["cache_error"]) %}
+                {%if messages %}
+                    {% for m in messages %}
+                        <p class="alert">{{m}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/usercaches/update" method="post" id="addcache-form">
+                <button type="button" onclick="getLocation()" class="btn btn-light">Share Location</button>
+                <input type="hidden" name="id" value="{{ cache.id }}">
+                <label for="latitude">Latitude:
+                    <input id="lat-id" type="text" name="latitude" value="{{ cache.latitude }}" class="form-control">
+                </label>
+                <label for="longitude">Longitude:
+                    <input id="lon-id" type="text" name="longitude" value="{{ cache.longitude }}" class="form-control">
+                </label>
+                <label for="description">Description:
+                    <input type="text" name="description" value="{{ cache.description }}" class="form-control">
+                </label>
+                <button type="button" onclick="getAddress()" class="btn btn-light">Get Address</button>
+                <label for="street">Street:
+                    <input type="text" name="street" id="street" value="{{ cache.street }}" class="form-control">
+                </label>
+                <label for="city">City:
+                    <input type="text" name="city" id="city" value="{{ cache.city }}" class="form-control">
+                </label>
+                <label for="state">State:
+                    <input type="text" name="state" id="state" value="{{ cache.state }}" class="form-control">
+                </label>
+                <label for="country">Country:
+                    <input type="text" name="country" id="country" value="{{ cache.country }}" class="form-control">
+                </label>
+                <button type="submit" id="addcache-button" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="button-div mt-3">
+                <a href="/usercaches"><button class="btn btn-light">Go Back</button></a>
+            </div>
+        </div>
     </main>
-    <div class="button-div">
-        <a href="/usercaches"><button>Go Back</button></a>
-    </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>
