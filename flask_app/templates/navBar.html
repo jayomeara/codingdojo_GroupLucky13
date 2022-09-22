@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    {% block navBar %}
+    <!-- <header id="header">
+        <h1 id="header-text">CacheStash</h1>
+        <div class="header-links">
+            <a id="header-button" href="/dashboard">Home</a>
+            <a id="header-button" href="/logout">Logout</a>
+        </div>
+    </header> -->
+    <header class="row justify-content-around" id="header">
+        <div class="col-auto">
+            <h1 id="header-text">CacheStash</h1>
+        </div>
+        <div class="col-auto" id="header-links">
+            <a href="/dashboard" id="header-button">Home</a>
+            <a href="/logout" id="header-button">Logout</a>
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {%if messages %}
+                <div class="alert" role="alert">
+                    {% for m in messages %}
+                        <h5>{{m}}</h5>
+                    {% endfor %}
+                </div>
+                {% endif %}
+        {% endwith %}
+    </header>
+    {% endblock navBar %}
+</body>
+</html>

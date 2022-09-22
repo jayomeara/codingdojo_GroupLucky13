@@ -13,14 +13,8 @@
 </head>
 
 
-<body id="bg">
-    <header id="header">
-        <h1 id="header-text">CacheStash</h1>
-        <div class="header-links">
-            <a id="header-button" href="/dashboard">Home</a>
-            <a id="header-button" href="/logout">Logout</a>
-        </div>
-    </header>
+<body>
+    {% include 'navBar.html' %}
 
     <div class="alert" role="alert">
         {% with messages = get_flashed_messages() %}
@@ -45,39 +39,40 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            <button onclick="getLocation()">Share Location</button>
-            <form action="/postcache" method="post" id="addcache-form">
+            <button class="btn btn-light" onclick="getLocation()">Share Location</button>
+            <form action="/postcache" method="post" id="addcache-form" >
                 <label for="latitude">Latitude:
-                    <input id="lat-id" type="text" name="latitude">
+                    <input id="lat-id" type="text" name="latitude" class="form-control">
                 </label>
                 <label for="longitude">Longitude:
-                    <input id="lon-id" type="text" name="longitude">
+                    <input id="lon-id" type="text" name="longitude" class="form-control">
                 </label>
                 <label for="description">Description:
-                    <textarea name="description" id="" cols="20" rows="3"></textarea>
+                    <textarea name="description" id="" cols="20" rows="3" class="form-control"></textarea>
                 </label>
-                <button type="button" onclick="getAddress()">Get Address</button>
+                <button class="btn btn-light" type="button" onclick="getAddress()">Get Address</button>
                 <label for="street">Street:
-                    <input type="text" name="street" id="street">
+                    <input type="text" name="street" id="street" class="form-control">
                 </label>
                 <label for="city">City:
-                    <input type="text" name="city" id="city">
+                    <input type="text" name="city" id="city" class="form-control">
                 </label>
                 <label for="state">State:
-                    <input type="text" name="state" id="state">
+                    <input type="text" name="state" id="state" class="form-control">
                 </label>
                 <label for="country">Country:
-                    <input type="text" name="country" id="country">
+                    <input type="text" name="country" id="country" class="form-control">
                 </label>
-                <button type="submit" id="addcache-button">Submit</button>
+                <button type="submit" id="addcache-button" class="btn btn-primary mb-3" >Submit</button>
             </form>
             <div class="button-div">
-                <a href="/cachemapsearch"><button>Search All Caches</button></a>
-                <a href="/usercaches"><button>View My Caches</button></a>
+                <a href="/cachemapsearch"><button class="btn btn-light mb-3" >Search All Caches</button></a>
+                <a href="/usercaches"><button class="btn btn-light" >View My Caches</button></a>
             </div>
         </div>
     </main>
     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>

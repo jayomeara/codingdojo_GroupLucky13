@@ -12,24 +12,7 @@
     <title>CacheStash</title>
 </head>
 <body>
-    <header class="row justify-content-around">
-        <div class="col-auto">
-            <h1>CacheStash</h1>
-        </div>
-        <div class="col-auto">
-            <a href="/dashboard">Home</a>
-            <a href="/logout">Logout</a>
-        </div>
-        <div class="alert" role="alert">
-            {% with messages = get_flashed_messages() %}
-                {%if messages %}
-                    {% for m in messages %}
-                        <h5>{{m}}</h5>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-        </div>
-    </header>
+    {% include 'navBar.html' %}
 
     <main>
         <!-- The following line of code might be extra so I commented it out -->
@@ -44,45 +27,37 @@
                 {% endif %}
             {% endwith %}
             <!-- <button onclick="getLocation()">Share Location</button> -->
-            <label for="city">City:
-                <input id="city" type="text" name="city">
+            <label for="city"><strong>City:</strong>
+                <input id="city" type="text" name="city" class="form-control">
             </label>
-            <label for="state">State:
-                <input id="state" type="text" name="state">
+            <label for="state"><strong>State:</strong>
+                <input id="state" type="text" name="state" class="form-control">
             </label>
-            <button type="button" onclick="search_caches()" id="searchall-button">Search</button>
+            <button type="button" onclick="search_caches()" id="searchall-button" class="btn btn-light btn-sm mt-2">Search</button>
         </div>
     </main>
-    <table id="viewall-table">
-        <thead>
-            <tr>
-                <th colspan="2" valign="top">Location</th>
-                <th rowspan="2" valign="top">Description</th>
-                <th rowspan="2" valign="top">Map</th>
-                <th rowspan="2" valign="top">Actions</th>
-            </tr>
-            <tr>
-                <td>Latitude</td>
-                <td>Longitude</td>
-            </tr>
-        </thead>
-        <tbody id="cache_table_body">
-            {% for cache in allCaches.caches %}
+    <div class="d-flex justify-content-center">
+        <table class='table' id="viewall-table">
+            <thead>
                 <tr>
-                    <td>{{ cache.latitude }}</td>
-                    <td>{{ cache.longitude }}</td>
-                    <td>{{ cache.description }}</td>
-                    <td><img width="400" height="200" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=400&height=200&center=lonlat:{{ cache.longitude }},{{ cache.latitude }}&zoom=14&apiKey=ce3b7da4754d40ba881a68789118ecbd"></td>
-                    <td><a href="/view/cache/{{cache.id}}"><button>View Comments</button></a></td>
+                    <th colspan="2" valign="top" scope="col">Location</th>
+                    <th rowspan="2" valign="top" scope="col">Description</th>
+                    <th rowspan="2" valign="top" scope="col">Map</th>
+                    <th rowspan="2" valign="top" scope="col">Actions</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-</div>
+                <tr>
+                    <td>Latitude</td>
+                    <td>Longitude</td>
+                </tr>
+            </thead>
+            <tbody id="cache_table_body">
+                <!-- Search results will be auto inserted here -->
+            </tbody>
+        </table>
+    </div>
     <div class="button-div">
-        <button onclick="get_all_caches()">View All Caches</button>
-        <a href="/usercaches"><button>View My Caches</button></a>
+        <button onclick="get_all_caches()" class="btn btn-light">View All Caches</button>
+        <a href="/usercaches"><button class="btn btn-light">View My Caches</button></a>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>

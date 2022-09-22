@@ -12,24 +12,7 @@
     <title>CacheStash</title>
 </head>
 <body>
-    <header class="row justify-content-around">
-        <div class="col-md-auto">
-            <h1>CacheStash</h1>
-        </div>
-        <div class="col-auto">
-            <a href="/dashboard">Home</a>
-            <a href="/logout">Logout</a>
-        </div>
-        <div class="alert" role="alert">
-            {% with messages = get_flashed_messages() %}
-                {%if messages %}
-                    {% for m in messages %}
-                        <h5>{{m}}</h5>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-        </div>
-    </header>
+    {% include 'navBar.html' %}
 
     <div class="mycaches-container">
         <h2>My Caches</h2>

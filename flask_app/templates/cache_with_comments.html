@@ -12,35 +12,18 @@
     <title>CacheStash</title>
 </head>
 <body>
-    <header class="row justify-content-around">
-        <div class="col-md-auto">
-            <h1>CacheStash</h1>
-        </div>
-        <div class="col-auto">
-            <a href="/dashboard">Home</a>
-            <a href="/logout">Logout</a>
-        </div>
-        <div class="alert" role="alert">
-            {% with messages = get_flashed_messages() %}
-                {%if messages %}
-                    {% for m in messages %}
-                        <h5>{{m}}</h5>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-        </div>
-    </header>
+    {% include 'navBar.html' %}
 
     <div class="caches_with_comments-container">
         <td><img width="400" height="200" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=400&height=200&center=lonlat:{{ cache.longitude }},{{ cache.latitude }}&zoom=14&apiKey=ce3b7da4754d40ba881a68789118ecbd"></td>
         <div>
-            <table id="viewcomments-table">
+            <table class='table' id="viewcomments-table">
                 <thead>
                     <tr>
-                        <th colspan="2" valign="top">User</th>
-                        <th rowspan="2" valign="top">Comment</th>
-                        <th rowspan="2" valign="top">Time/Date</th>
-                        <th rowspan="2" valign="top">Actions</th>
+                        <th colspan="2" valign="top" scope="row">User</th>
+                        <th rowspan="2" valign="top" scope="row">Comment</th>
+                        <th rowspan="2" valign="top" scope="row">Time/Date</th>
+                        <th rowspan="2" valign="top" scope="row">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,7 +33,7 @@
                             <td>{{comment.message }}</td>
                             <td>{{comment.updated_at.strftime("%H:%M on %m-%d-%y") }}</td>
                             {% if comment.author.user_id == session['user_id']%}
-                            <td><a href="/delete/comment/{{comment.id}}/{{cache.id}}/{{comment.user_id}}"><button>Delete</button></a></td>
+                            <td><a href="/delete/comment/{{comment.id}}/{{cache.id}}/{{comment.user_id}}"><button class="btn btn-light">Delete</button></a></td>
                             {% endif %}
                         </tr>
                     {% endfor %}
@@ -61,20 +44,20 @@
                     <input type="hidden" name="user_id" value="{{session['user_id']}}">
                     <input type="hidden" name="cache_id" value="{{cache.id}}">
                     <label for="message" id="message_label">Message:
-                        <textarea name="message" id="" cols="30" rows="5"></textarea>
+                        <textarea name="message" id="" cols="30" rows="5" class="form-control"></textarea>
                     </label>
                     <div>
-                        <button type="button" onclick="cancel_comment_form()">Cancel Comment</button>
-                        <button type="submit">Submit Comment</button>
+                        <button type="button" onclick="cancel_comment_form()" class="btn btn-secondary">Cancel Comment</button>
+                        <button type="submit" class="btn btn-primary">Submit Comment</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <div class="button-div">
-        <button onclick="display_comment_form(this)" id="comment_button">Comment</button>
-        <a href="/cachemapsearch"><button>Search All Caches</button></a>
-        <a href="/usercaches"><button>View My Caches</button></a>
+        <button onclick="display_comment_form(this)" id="comment_button" class="btn btn-light">Comment</button>
+        <a href="/cachemapsearch"><button class="btn btn-light">Search All Caches</button></a>
+        <a href="/usercaches"><button class="btn btn-light">View My Caches</button></a>
     </div>
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
