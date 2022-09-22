@@ -155,3 +155,46 @@ body {
     display: flex;
     align-items: center;
 }
+
+#dash-btn {
+    background-color: #255f85;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px #481d24;
+    margin-right: 15px;
+}
+
+#dash-btn:hover {
+    background-color: #3280b3;
+    color: white;
+    transform: translateY(-3px);
+}
+
+#dash-submit-btn {
+    background-color: #009933;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px #481d24;
+    margin-right: 15px;
+    border-radius: 2px;
+}
+
+#dash-submit-btn:hover {
+    background-color: #5cd65c;
+    color: white;
+    transform: translateY(-3px);
+}
+
+#addcache-form {
+    margin-bottom: 8px;
+}

@@ -39,7 +39,7 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            <button class="btn btn-light" onclick="getLocation()">Share Location</button>
+            <button class="btn btn-light" id="dash-btn" onclick="getLocation()">Share Location</button>
             <form action="/postcache" method="post" id="addcache-form" >
                 <label for="latitude">Latitude:
                     <input id="lat-id" type="text" name="latitude" class="form-control">
@@ -50,7 +50,7 @@
                 <label for="description">Description:
                     <textarea name="description" id="" cols="20" rows="3" class="form-control"></textarea>
                 </label>
-                <button class="btn btn-light" type="button" onclick="getAddress()">Get Address</button>
+                <button class="btn btn-light" id="dash-btn" type="button" onclick="getAddress()">Get Address</button>
                 <label for="street">Street:
                     <input type="text" name="street" id="street" class="form-control">
                 </label>
@@ -63,11 +63,11 @@
                 <label for="country">Country:
                     <input type="text" name="country" id="country" class="form-control">
                 </label>
-                <button type="submit" id="addcache-button" class="btn btn-primary mb-3" >Submit</button>
+                <button type="submit" id="dash-submit-btn" class="" >Submit</button>
             </form>
             <div class="button-div">
-                <a href="/cachemapsearch"><button class="btn btn-light mb-3" >Search All Caches</button></a>
-                <a href="/usercaches"><button class="btn btn-light" >View My Caches</button></a>
+                <a href="/cachemapsearch"><button class="btn btn-light mb-3" id="dash-btn" >Search All Caches</button></a>
+                <a href="/usercaches"><button class="btn btn-light" id="dash-btn" >View My Caches</button></a>
             </div>
         </div>
     </main>
