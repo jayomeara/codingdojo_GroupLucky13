@@ -16,7 +16,7 @@
 <body>
     {% include 'navBar.html' %}
 
-    <div class="alert" role="alert">
+    <!-- <div class="alert" role="alert">
         {% with messages = get_flashed_messages() %}
             {%if messages %}
                 {% for m in messages %}
@@ -24,14 +24,11 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-    </div>
+    </div> -->
 
     <main>
-        <!-- The following line of code might be extra so I commented it out -->
-        <!-- <div id="location"></div> --> 
         <div class="addcache-container" id="card">
             <h2>Add a Cache</h2>
-            <!-- This is the only way to add a cache, right? I think the title should be here then. -->
             {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
                 {%if messages %}
                     {% for m in messages %}

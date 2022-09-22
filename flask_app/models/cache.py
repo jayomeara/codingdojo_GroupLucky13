@@ -170,3 +170,17 @@ class Cache:
         WHERE id = %(id)s
         ;"""
         return connectToMySQL(cls.DB).query_db( query, data )
+
+    @staticmethod
+    def validate_cache(data):
+        is_valid = True
+        if len(data['latitude']) < 1:
+            flash("Latitude Required!")
+            is_valid = False
+        if len(data['longitude']) < 1:
+            flash("Longitude Required!")
+            is_valid = False
+        if len(data['description']) < 10:
+            flash("Add a description before submitting!")
+            is_valid = False
+        return is_valid

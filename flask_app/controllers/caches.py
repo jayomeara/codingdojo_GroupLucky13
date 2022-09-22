@@ -31,6 +31,7 @@ def post_new_cache():
         'state' : request.form['state'],
         'country' : request.form['country']
     }
+    Cache.validate_cache(data)
     Cache.save_cache(data)
     return redirect ('/dashboard')
 
@@ -96,3 +97,4 @@ def search_by_location(city, state):
 @app.route('/get_all_caches')
 def get_all_caches():
     return Cache.get_all_caches_JSON()
+
