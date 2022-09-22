@@ -232,7 +232,6 @@ body {
     width: 1150px;
     margin: 50px;
     padding: 10px;
-    margin-left: 375px;
 }
 
 #searchall-card {
@@ -243,7 +242,6 @@ body {
     width: 300px;
     margin: 50px;
     padding: 30px;
-    margin-left: 0%;
 }
 
 #table-card {
@@ -254,7 +252,6 @@ body {
     width: 900px;
     margin: 50px;
     padding: 30px;
-    margin-left: 25%;
 }
 
 #dash-btn-delete {
@@ -303,7 +300,6 @@ body {
     width: 600px;
     margin: 50px;
     padding: 10px;
-    margin-left: 650px;
 }
 
 .location-column, .address-column {

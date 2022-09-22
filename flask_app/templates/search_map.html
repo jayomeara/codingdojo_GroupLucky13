@@ -36,24 +36,26 @@
             <button type="button" onclick="search_caches()" id="dash-submit-btn" class="btn btn-light btn-sm mt-2">Search</button>
         </div>
     </main>
-    <div class="d-flex justify-content-center" id="table-card">
-        <table class='table' id="viewall-table">
-            <thead>
-                <tr>
-                    <th colspan="2" valign="top" scope="col">Location</th>
-                    <th rowspan="2" valign="top" scope="col">Description</th>
-                    <th rowspan="2" valign="top" scope="col">Map</th>
-                    <th rowspan="2" valign="top" scope="col">Actions</th>
-                </tr>
-                <tr>
-                    <td>Latitude</td>
-                    <td>Longitude</td>
-                </tr>
-            </thead>
-            <tbody id="cache_table_body">
-                <!-- Search results will be auto inserted here -->
-            </tbody>
-        </table>
+    <div class="d-flex justify-content-center">
+        <div  id="table-card">
+            <table class='table' id="viewall-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" valign="top" scope="col">Location</th>
+                        <th rowspan="2" valign="top" scope="col">Description</th>
+                        <th rowspan="2" valign="top" scope="col">Map</th>
+                        <th rowspan="2" valign="top" scope="col">Actions</th>
+                    </tr>
+                    <tr>
+                        <td>Latitude</td>
+                        <td>Longitude</td>
+                    </tr>
+                </thead>
+                <tbody id="cache_table_body">
+                    <!-- Search results will be auto inserted here -->
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="button-div">
         <button onclick="get_all_caches()" class="btn btn-light" id="dash-btn">View All Caches</button>
