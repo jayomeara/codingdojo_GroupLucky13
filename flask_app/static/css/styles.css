@@ -101,7 +101,7 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    box-shadow: 5px 5px #481d24;
+    box-shadow: 5px 5px 5px #481d24;
     margin-right: 15px;
     border-radius: 5px;
 }
