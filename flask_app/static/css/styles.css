@@ -115,7 +115,7 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    box-shadow: 5px 5px #481d24;
+    box-shadow: 5px 5px 5px #481d24;
     margin-right: 15px;
     border-radius: 5px;
 }
@@ -135,7 +135,7 @@ body {
 }
 
 #header-text {
-    text-shadow: 3px 3px #c5283d;
+    text-shadow: 3px 3px 3px #c5283d;
     color: #481d24
 }
 
@@ -147,7 +147,7 @@ body {
 
 #card {
     background-color: #e9724c;
-    box-shadow: 15px 15px #481d24;
+    box-shadow: 15px 15px 5px #481d24;
     font-weight: bold;
     width: 300px;
 }
@@ -187,7 +187,7 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    box-shadow: 5px 5px #481d24;
+    box-shadow: 5px 5px 5px #481d24;
     margin-right: 15px;
 }
 
@@ -206,7 +206,7 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    box-shadow: 5px 5px #481d24;
+    box-shadow: 5px 5px 5px #481d24;
     margin-right: 15px;
     border-radius: 5px;
 }
@@ -223,7 +223,7 @@ body {
 
 #mycache-card {
     background-color: #e9724c;
-    box-shadow: 15px 15px #481d24;
+    box-shadow: 15px 15px 5px #481d24;
     font-weight: bold;
     width: 1150px;
     margin: 50px;
@@ -233,7 +233,7 @@ body {
 
 #searchall-card {
     background-color: #e9724c;
-    box-shadow: 15px 15px #481d24;
+    box-shadow: 15px 15px 5px #481d24;
     font-weight: bold;
     width: 300px;
     margin: 50px;
@@ -243,7 +243,7 @@ body {
 
 #table-card {
     background-color: #e9724c;
-    box-shadow: 15px 15px #481d24;
+    box-shadow: 15px 15px 5px#481d24;
     font-weight: bold;
     width: 900px;
     margin: 50px;
@@ -260,7 +260,7 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    box-shadow: 5px 5px #481d24;
+    box-shadow: 5px 5px 5px #481d24;
     margin-right: 15px;
 }
 
@@ -279,7 +279,7 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    box-shadow: 5px 5px #481d24;
+    box-shadow: 5px 5px 5px #481d24;
     margin-right: 15px;
 }
 
@@ -291,7 +291,7 @@ body {
 
 #mycache-card-comments {
     background-color: #e9724c;
-    box-shadow: 15px 15px #481d24;
+    box-shadow: 15px 15px 5px #481d24;
     font-weight: bold;
     width: 600px;
     margin: 50px;
