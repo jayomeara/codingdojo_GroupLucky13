@@ -31,7 +31,8 @@ def post_new_cache():
         'state' : request.form['state'],
         'country' : request.form['country']
     }
-    Cache.validate_cache(data)
+    if not Cache.validate_cache(data):
+        return redirect('/dashboard')
     Cache.save_cache(data)
     return redirect ('/dashboard')
 

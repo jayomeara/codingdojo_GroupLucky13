@@ -175,12 +175,12 @@ class Cache:
     def validate_cache(data):
         is_valid = True
         if len(data['latitude']) < 1:
-            flash("Latitude Required!")
+            flash("Latitude Required!", 'cache_error')
             is_valid = False
         if len(data['longitude']) < 1:
-            flash("Longitude Required!")
+            flash("Longitude Required!", 'cache_error')
             is_valid = False
         if len(data['description']) < 10:
-            flash("Add a description before submitting!")
+            flash("Add a description before submitting!", 'cache_error')
             is_valid = False
         return is_valid

@@ -29,7 +29,7 @@
     <main>
         <div class="addcache-container" id="card">
             <h2>Add a Cache</h2>
-            {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
+            {% with messages = get_flashed_messages(category_filter=["cache_error"]) %}
                 {%if messages %}
                     {% for m in messages %}
                         <p class="alert">{{m}}</p>
