@@ -223,10 +223,10 @@ body {
     background-color: #e9724c;
     box-shadow: 15px 15px #481d24;
     font-weight: bold;
-    width: 500px;
+    width: 1150px;
     margin: 50px;
     padding: 10px;
-    margin-left: 700px;
+    margin-left: 375px;
 }
 
 #searchall-card {
@@ -247,4 +247,23 @@ body {
     margin: 50px;
     padding: 30px;
     margin-left: 25%;
+}
+
+#dash-btn-delete {
+    background-color: #c5283d;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px #481d24;
+    margin-right: 15px;
+}
+
+#dash-btn-delete:hover {
+    background-color: #d84155;
+    color: white;
+    transform: translateY(-3px);
 }
