@@ -1,18 +1,7 @@
-# CacheMap
-## codingdojo_GroupLucky13
+#CacheStash
 
-### Website that tracks and organizes Cache Locations
+###CacheStash is a location storing service for hiding buried treasure, orienteering, or remembering how to get home!
 
-#### Project Goals:
-- Create a launched (AWS) website with the Flask framework, Python, JavaScript and Bootstrap.
-- Allow registered users to share their location data and make an API call (for lat/long).
-- Once location data is parsed, the location can be 'cached' and saved along with name, information, ect.
-- Allow the user who created the cache to edit the location and name, information, ect.
-- *possible* Show all cache locations as pins on a map.
-- Allow comments on caches.
-- *possible* Allow replies on comments.
+After registering an account, you can search for your latitude and longitude via JavaScript and API call. With another API call you can reverse look up your street and town name. All of that is securely saved in our database. When you view your caches, you’ll see a map of your location provided by an API call.  You can comment yours and other people’s cache. You are also able to edit and delete any cache or comment that you create.
 
-#### Additional Notes:
-- All pages have a MyCache, CacheMap, Add a Cache, Search Cache link
-- Find a Cache and CacheMap could potentially be on the same page
-- Clicking a Cache in the “Caches in {{loc}}” page opens Cache Comments
+Styled with CSS and Bootstrap, the app is fully deployed on AWS and has a SSL certificate that allows DNS forwarding and a secure connection, which is required for the location service.
