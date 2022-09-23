@@ -24,6 +24,8 @@ def add_comment(cache_id):
         'cache_id' : cache_id,
         'user_id' : request.form['user_id']
     }
+    if not Comment.validate_comment(data):
+        return redirect (f'/view/cache/{cache_id}')
     Comment.save_comment(data)
     return redirect(f'/view/cache/{cache_id}')
 

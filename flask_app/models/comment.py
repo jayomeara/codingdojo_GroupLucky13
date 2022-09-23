@@ -67,3 +67,11 @@ class Comment:
         WHERE id = %(id)s
         ;"""
         return connectToMySQL(cls.DB).query_db( query, data )
+
+    @staticmethod
+    def validate_comment(data):
+        is_valid = True
+        if len(data['message']) < 1:
+            flash("Comment Required!", 'comment_error')
+            is_valid = False
+        return is_valid
