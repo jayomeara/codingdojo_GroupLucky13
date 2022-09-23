@@ -181,6 +181,6 @@ class Cache:
             flash("Longitude Required!", 'cache_error')
             is_valid = False
         if len(data['description']) < 10:
-            flash("Add a description before submitting!", 'cache_error')
+            flash("Description must be at least 10 character long!", 'cache_error')
             is_valid = False
         return is_valid
