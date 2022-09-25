@@ -89,3 +89,47 @@ function cancel_comment_form() {
     target = document.querySelector('#comment_button');
     target.style.display = 'block';
 }
+
+async function getCreators() {
+    let creator1 = await fetch("https://api.github.com/users/aldoiaguilera")
+        .then( response => response.json() );
+    let creator2 = await fetch("https://api.github.com/users/QuestionBerry")
+        .then( response => response.json() );
+    let creator3 = await fetch("https://api.github.com/users/jayomeara")
+        .then( response => response.json() );
+    let creator4 = await fetch("https://api.github.com/users/b3telgeuse")
+        .then( response => response.json() );
+    let creator5 = await fetch("https://api.github.com/users/b-chloe")
+        .then( response => response.json() );
+    position = document.getElementsByClassName("creator-container-box");
+    position = position[0]
+    position.innerHTML = `
+    <div class="creator-container">
+        <img src="${creator1['avatar_url']}" alt="Creator avatar" class="creator-avatar">
+        <p><strong>${creator1['name']}</strong></p>
+        <a href="${creator1['html_url']}"><button class="creator-button">Go to creator's GitHub</button></a>
+    </div>
+    <div class="creator-container">
+        <img src="${creator2['avatar_url']}" alt="Creator avatar" class="creator-avatar">
+        <p><strong>${creator2['name']}</strong></p>
+        <a href="${creator2['html_url']}"><button class="creator-button">Go to creator's GitHub</button></a>
+    </div>
+    <div class="creator-container">
+        <img src="${creator3['avatar_url']}" alt="Creator avatar" class="creator-avatar">
+        <p><strong>${creator3['name']}</strong></p>
+        <a href="${creator3['html_url']}"><button class="creator-button">Go to creator's GitHub</button></a>
+    </div>
+    <div class="creator-container">
+        <img src="${creator4['avatar_url']}" alt="Creator avatar" class="creator-avatar">
+        <p><strong>${creator4['name']}</strong></p>
+        <a href="${creator4['html_url']}"><button class="creator-button">Go to creator's GitHub</button></a>
+    </div>
+    <div class="creator-container">
+        <img src="${creator5['avatar_url']}" alt="Creator avatar" class="creator-avatar">
+        <p><strong>${creator5['name']}</strong></p>
+        <a href="${creator5['html_url']}"><button class="creator-button">Go to creator's GitHub</button></a>
+    </div>
+    `
+}
+
+getCreators();

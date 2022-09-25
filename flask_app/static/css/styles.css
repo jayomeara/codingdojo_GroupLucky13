@@ -142,8 +142,7 @@ body {
 
 #login-main {
     display: flex;
-    margin: 140px 20px;
-
+    margin: 65px 20px;
 }
 
 #card {
@@ -314,4 +313,48 @@ body {
 
 #add-comment-container {
     display: none;
+}
+
+.creator-avatar {
+    width: 80px;
+    height: 80px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.creator-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.creator-container-box {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #e9724c;
+    padding: 25px 0px;
+    border-top: 4px solid black;
+}
+
+.creator-button {
+    background-color: #255f85;
+    border: 2px solid black;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px 5px #481d24;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.creator-button:hover {
+    background-color: #3280b3;
+    color: white;
+    transform: translateY(-3px);
+    opacity: 1;
 }
